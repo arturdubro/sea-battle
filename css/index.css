@@ -1,26 +1,120 @@
+@import url('http://fonts.googleapis.com/css?family=Bad+Script|Jura|Marmelad|Pattaya');
+
 html, body {
     padding: 0;
     margin: 0;
 
-    font-family: 'Macondo', cursive;
+    /*font-family: 'Bad Script', cursive;*/
+    /*font-family: 'Jura', sans-serif;*/
+    font-family: 'Marmelad', sans-serif;
+    /*font-family: 'Pattaya', sans-serif;*/
+
+
+    color: white;
+    font-size: 1em;
+    letter-spacing: 1px;
+
+    background-color: #3987c9;
+
+    /*border: 0.1em solid white;*/
+}
+
+#container {
+
+    /*position: fixed;*/
+    width: 100%;
+    /*height: 1000px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .row {
-    background-color: lightgreen;
+    /*background-color: lightgreen;*/
 }
 
 .title {
     text-align: center;
+    margin: 10%;
+    font-size: 2em;
 }
 
 .image {
     width: 100%;
 }
 
-.button {
-    text-align: center;
+.menu {
+    margin: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.field {
+.menu .button {
+    padding: 5%;
+}
 
+.button {
+    text-align: center;
+    font-size: 1em;
+    background-color: #22527a;
+
+    border: 0.2em dashed white;
+    border-radius: 1.5em;
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
+}
+
+.start {
+    margin: 10%;
+    padding: 10%;
+}
+
+.button:hover {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#field {
+
+    margin: 5%;
+    /*border: 0.2em dashed white;*/
+    /*width: 100%;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*padding-top: 100%;*/
+    /*background-color: red;*/
+}
+
+.rowCell {
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-between;*/
+}
+
+.cell {
+    /*width: auto;*/
+    /*display:table-cell;*/
+    width: 1.7em;
+    height: 1.7em;
+    background-color: white;
+
+    /*padding: 10%;*/
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    margin: 2px;
+    border-radius: 2px;
+}
+
+.shot {
+    background-color: #3987c9;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
