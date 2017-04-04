@@ -23,10 +23,10 @@ html, body {
 
     /*position: fixed;*/
     width: 100%;
-    /*height: 1000px;*/
+    /*height: 100%;*/
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .row {
@@ -35,6 +35,7 @@ html, body {
 
 .title {
     text-align: center;
+
     margin: 10%;
     font-size: 2em;
 }
@@ -60,7 +61,7 @@ html, body {
     background-color: #22527a;
 
     border: 0.2em dashed white;
-    border-radius: 1.5em;
+    border-radius: 1em;
 
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
 }
@@ -70,13 +71,18 @@ html, body {
     padding: 10%;
 }
 
-.button:hover {
+.button:active {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#text {
+    /*visibility: hidden;*/
 }
 
 #field {
 
-    margin: 5%;
+    margin-top: 10%;
+    /*margin: 5%;*/
     /*border: 0.2em dashed white;*/
     /*width: 100%;*/
     display: flex;
@@ -95,18 +101,77 @@ html, body {
 .cell {
     /*width: auto;*/
     /*display:table-cell;*/
-    width: 1.7em;
-    height: 1.7em;
+    width: 1.8em;
+    height: 1.8em;
     background-color: white;
 
     /*padding: 10%;*/
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-    margin: 2px;
-    border-radius: 2px;
+    /*margin: 2px;*/
+    /*border-radius: 1px;*/
 }
 
 .shot {
-    background-color: #3987c9;
+    background-color: #22527a;
+    /*border: 2px solid #34e77e;*/
+    /*margin: 0;*/
+    /*border-radius: 0;*/
+    /*box-shadow: none;*/
+    /*opacity: 0;*/
+    /*box-shadow: 0 1px 2px rgba(60, 231, 199, 0.7);*/
+}
+
+.dead {
+    background-color: #f0454a;
+}
+
+#question {
+    margin: 10%;
+    /*height: 200px;*/
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+
+    color: black;
+    padding: 5%;
+    background-color: white;
+    border-radius: 1em;
+
+    border: 0.2em dashed #22527a;
+}
+
+.input {
+    /*display: flex;*/
+    /*align-items: center;*/
+    text-align: center;
+}
+
+input {
+    /*position: relative;*/
+    /*left: 1em;*/
+    /*right: 1em;*/
+    width: 70%;
+    padding: 5%;
+    /*width: 100%;*/
+    font-size: 1em;
+    /*box-shadow:inset 0 3px 4px rgba(0, 0, 0, 0.7);*/
+    border: none;
+    border-radius: 0;
+
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+
+    font-family: 'Marmelad', sans-serif;
+}
+
+input.middle:focus {
+    outline-width: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 .noselect {

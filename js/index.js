@@ -3,6 +3,8 @@ $(document).ready(function() {
     $("#container").load("./view/main.html");
 });
 
+let attack = false;
+
 // document.getElementById("body").requestFullscreen();
 
 function init() {
@@ -26,14 +28,38 @@ function init() {
 }
 
 function start() {
-    $("#container").load("./view/main.html" );
+
+    $("#text").text("Стреляй по бою!");
+
+    $("footer").hide();
+
+    attack = true;
+
+    // $("#container").load("./view/main.html" );
 }
 
 function random() {
-    console.log(Math.round(Math.random() * 10))
+    console.log()
 }
 
 function cell(i, j) {
+
     console.log("cell: " + i + " " + j);
-    $("#cell" + i + j).addClass("shot");
+
+    if (attack) {
+
+        $("#cell" + i + j).addClass("dead");
+
+        setTimeout(function() {
+            $("#container").load("./view/question.html");
+        }, 500);
+
+
+
+    } else {
+
+        $("#cell" + i + j).addClass("shot");
+    }
+
+
 }
