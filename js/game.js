@@ -1,18 +1,20 @@
-function aiAttack(map) {
+function aiAttack() {
 
     const x = Math.round(Math.random() * 9);
     const y = Math.round(Math.random() * 9);
 
     console.log("aiAttack " + x + " " + y);
 
-    if (map[x][y]) {
+    if (userMap[x][y] === "ship") {
+
+        userMap[x][y] = "dead";
 
         $("#cell" + x + y).addClass("dead");
 
         setTimeout(function() {
 
             clearMapView();
-            showStoryMap(aiMap);
+            showAiMap(aiMap);
 
             $("#text").text("Стреляй обратку скорее");
 
@@ -22,10 +24,12 @@ function aiAttack(map) {
 
     } else {
 
+        userMap[x][y] = "void";
+
         $("#cell" + x + y).addClass("void");
 
         setTimeout(function() {
-            aiAttack(userMap)
+            aiAttack()
         }, 1000);
     }
 }
@@ -41,7 +45,6 @@ function answer() {
     $("#container").load("./view/game.html", function () {
 
         htmlMap();
-
         showMap(userMap);
 
         $("#text").text("Бой стреляет в тебя!");
@@ -49,10 +52,16 @@ function answer() {
         $("footer").hide();
 
         setTimeout(function() {
-            aiAttack(userMap)
+            aiAttack()
         }, 1000);
     });
 }
+
+function no() {
+
+    $("#text").text("Нельзя не ответить");
+}
+
 
 function shot(i, j) {
 
@@ -60,7 +69,9 @@ function shot(i, j) {
 
     if (attack) {
 
-        if (aiMap[i][j]) {
+        if (aiMap[i][j] === "ship") {
+
+            aiMap[i][j] = "dead";
 
             $("#cell" + i + j).addClass("dead");
 
@@ -75,6 +86,8 @@ function shot(i, j) {
             }, 500);
 
         } else {
+
+            aiMap[i][j] = "void";
 
             $("#cell" + i + j).addClass("void");
         }

@@ -43,21 +43,21 @@ function random() {
         $("#text").text("Просто нажми начать уже");
     }
 
-    if (generate > 20 && generate < 40) {
+    if (generate > 20 && generate < 30) {
         $("#text").text("Печенек: " + generate);
     }
 
-    if (generate === 40) {
+    if (generate === 30) {
         $("#text").text("Плюс один квадрат");
         count++;
     }
 
-    if (generate === 50) {
+    if (generate === 40) {
         $("#text").text("Минус пять квадратов");
-        count = count - 10;
+        count = count - 5;
     }
 
-    if (generate === 60) {
+    if (generate === 50) {
         $("#text").text("Там дальше еще всякие скучные вопросы");
         count = 20;
     }
