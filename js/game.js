@@ -22,7 +22,7 @@ function aiAttack() {
 
         }, 1000);
 
-    } else {
+    } else if (userMap[x][y] === "") {
 
         userMap[x][y] = "void";
 
@@ -31,6 +31,9 @@ function aiAttack() {
         setTimeout(function() {
             aiAttack()
         }, 1000);
+
+    } else {
+        aiAttack();
     }
 }
 
