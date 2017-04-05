@@ -6,16 +6,24 @@ function aiAttack(map) {
     console.log("aiAttack " + x + " " + y);
 
     if (map[x][y]) {
+
         $("#cell" + x + y).addClass("dead");
+
         setTimeout(function() {
+
             clearMapView();
-            // showMap(aiMap);
             showStoryMap(aiMap);
+
             $("#text").text("Стреляй обратку скорее");
+
+            attack = true;
+
         }, 1000);
 
     } else {
+
         $("#cell" + x + y).addClass("void");
+
         setTimeout(function() {
             aiAttack(userMap)
         }, 1000);
@@ -24,7 +32,11 @@ function aiAttack(map) {
 
 function answer() {
 
-    console.log($("input").val())
+    let val = $("input").val();
+
+    checkAnswer(val);
+
+    console.log();
 
     $("#container").load("./view/game.html", function () {
 
@@ -38,7 +50,7 @@ function answer() {
 
         setTimeout(function() {
             aiAttack(userMap)
-        }, 500);
+        }, 1000);
     });
 }
 
@@ -52,8 +64,14 @@ function shot(i, j) {
 
             $("#cell" + i + j).addClass("dead");
 
+            attack = false;
+
             setTimeout(function () {
-                $("#container").load("./view/question.html");
+
+                $("#container").load("./view/question.html", function () {
+
+                    selectQuestion();
+                });
             }, 500);
 
         } else {
@@ -63,7 +81,7 @@ function shot(i, j) {
 
     } else {
 
-        $("#cell" + i + j).addClass("shot");
+        // $("#cell" + i + j).addClass("");
     }
 }
 

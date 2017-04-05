@@ -33,13 +33,15 @@ function checkNeighbors(map, i, j) {
     return true;
 }
 
-function fill(map, count) {
+function fillMapArray(map, count) {
+
+    let randConst = 100 / count;
 
     for (let i = 0; i < 10; i++) {
 
         for (let j = 0; j < 10; j++) {
 
-            if (map[i][j] !== true && Math.round(Math.random() * 4) === 1 && checkNeighbors(map, i, j)) {
+            if (map[i][j] !== true && Math.round(Math.random() * randConst) === 1 && checkNeighbors(map, i, j)) {
 
                 map[i][j] = true;
 
@@ -55,7 +57,7 @@ function fill(map, count) {
     }
 
     if (count > 0)
-        fill(map, count);
+        fillMapArray(map, count);
 }
 
 function createMapArray(map) {
@@ -75,7 +77,7 @@ function initMap(map, count) {
 
     createMapArray(map);
 
-    fill(map, count);
+    fillMapArray(map, count);
 
     // console.log(count)
 }

@@ -3,17 +3,21 @@ $(document).ready(function() {
     $("#container").load("./view/main.html");
 });
 
+//random count, for fun
 let generate = 0;
 
+//flag ai or user attack
 let attack = false;
 
+//ship maps
 let userMap = [];
-
 let aiMap = [];
 
+//box generator count
 let count = 20;
 
-let aiCount = 20
+//ai box generator count
+let aiCount = 20;
 
 // document.getElementById("body").requestFullscreen();
 
@@ -51,6 +55,11 @@ function random() {
     if (generate === 50) {
         $("#text").text("Минус пять квадратов");
         count = count - 10;
+    }
+
+    if (generate === 60) {
+        $("#text").text("Там дальше еще всякие скучные вопросы");
+        count = 20;
     }
 
     clearMapView();
