@@ -3,7 +3,17 @@ $(document).ready(function() {
     $("#container").load("./view/main.html");
 });
 
+let generate = 0;
+
 let attack = false;
+
+let userMap = [];
+
+let aiMap = [];
+
+let count = 20;
+
+let aiCount = 20
 
 // document.getElementById("body").requestFullscreen();
 
@@ -13,18 +23,39 @@ function init() {
 
     $("#container").load("./view/game.html", function () {
 
-        for (let i = 0; i < 10; i++) {
+        htmlMap();
 
-            $("#field").append("<div class='rowCell' id='row" + i + "'></div>");
+        initMap(userMap, count);
 
-            for (let j = 0; j < 10; j++) {
-
-                $("#row" + i).append("<div class='cell' id='cell" + i + j + "' onclick='cell(" + i + " ," + j + ")'></div>");
-            }
-        }
-
-        // window.scrollTo(0, 1);
+        $("#text").text("Твои кораблики");
     });
+}
+
+function random() {
+
+    generate++;
+
+    if (generate === 10) {
+        $("#text").text("Просто нажми начать уже");
+    }
+
+    if (generate > 20 && generate < 40) {
+        $("#text").text("Печенек: " + generate);
+    }
+
+    if (generate === 40) {
+        $("#text").text("Плюс один квадрат");
+        count++;
+    }
+
+    if (generate === 50) {
+        $("#text").text("Минус пять квадратов");
+        count = count - 10;
+    }
+
+    clearMapView();
+
+    initMap(userMap, count);
 }
 
 function start() {
@@ -35,31 +66,10 @@ function start() {
 
     attack = true;
 
+    initMap(aiMap, aiCount);
+
+    clearMapView();
+
     // $("#container").load("./view/main.html" );
 }
 
-function random() {
-    console.log()
-}
-
-function cell(i, j) {
-
-    console.log("cell: " + i + " " + j);
-
-    if (attack) {
-
-        $("#cell" + i + j).addClass("dead");
-
-        setTimeout(function() {
-            $("#container").load("./view/question.html");
-        }, 500);
-
-
-
-    } else {
-
-        $("#cell" + i + j).addClass("shot");
-    }
-
-
-}
