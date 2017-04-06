@@ -14,7 +14,8 @@ html, body {
     font-size: 1em;
     letter-spacing: 1px;
 
-    background-color: #3987c9;
+    /*background-color: #3987c9;*/
+    animation: sea 20s ease infinite;
     /*background: linear-gradient(to bottom, #46a6f7, #2d6a9e, black);*/
 }
 
@@ -38,11 +39,13 @@ header {
 .title {
     text-align: center;
     font-size: 2em;
-    padding: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .menu {
     margin: 10%;
+    margin-top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

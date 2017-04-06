@@ -67,6 +67,71 @@ function createMapArray(map) {
     }
 }
 
+function markShip(map, i, j) {
+
+    $("#cell" + i + j).addClass("dead");
+
+    map[i][j] = "dead";
+
+    if (i > 0 && j > 0) {
+        $("#cell" + (i-1) + (j-1)).addClass("void");
+        map[i-1][j-1] = "void";
+    }
+    if (i > 0 && j < 9) {
+        $("#cell" + (i-1) + (j+1)).addClass("void");
+        map[i-1][j+1] = "void";
+    }
+    if (i < 9 && j > 0) {
+        $("#cell" + (i+1) + (j-1)).addClass("void");
+        map[i+1][j-1] = "void";
+    }
+    if (i < 9 && j < 9) {
+        $("#cell" + (i+1) + (j+1)).addClass("void");
+        map[i+1][j+1] = "void";
+    }
+
+
+    if (!checkShipAround(map, i, j)) {
+
+        if (i > 0 && map[i-1][j] !== "ship" && map[i-1][j] !== "dead") {
+            $("#cell" + (i-1) + j).addClass("void");
+            map[i-1][j] = "void";
+        }
+
+        if (i < 9 && map[i+1][j] !== "ship" && map[i+1][j] !== "dead") {
+            $("#cell" + (i+1) + j).addClass("void");
+            map[i+1][j] = "void";
+        }
+
+        if (j > 0 && map[i][j-1] !== "ship" && map[i][j-1] !== "dead") {
+            $("#cell" + i + (j-1)).addClass("void");
+            map[i][j-1] = "void";
+        }
+        if (j < 9 && map[i][j+1] !== "ship" && map[i][j+1] !== "dead") {
+            $("#cell" + i + (j+1)).addClass("void");
+            map[i][j+1] = "void";
+        }
+    }
+}
+
+function checkShipAround(map, i, j) {
+
+    if (i > 0 && map[i-1][j] === "ship") {
+        return true;
+    }
+    if (i < 9 && map[i+1][j] === "ship") {
+        return true;
+    }
+    if (j > 0 && map[i][j-1] === "ship") {
+        return true;
+    }
+    if (j < 9 && map[i][j+1] === "ship") {
+        return true;
+    }
+
+    return false;
+}
+
 function initMap(map, count) {
 
     createMapArray(map);
@@ -115,8 +180,8 @@ function showAiMap(map) {
 
         for (let j = 0; j < 10; j++) {
 
-            // if (map[i][j] === "ship")
-            //     $("#cell" + i + j).addClass("ship");
+            if (map[i][j] === "ship")
+                $("#cell" + i + j).addClass("ship");
 
             if (map[i][j] === "void")
                 $("#cell" + i + j).addClass("void");

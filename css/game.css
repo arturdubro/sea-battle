@@ -1,6 +1,6 @@
 #field {
-
     margin-top: 10%;
+    margin-bottom: 10%;
     /*margin: 5%;*/
     /*border: 0.2em dashed white;*/
     /*width: 100%;*/
@@ -8,10 +8,12 @@
     align-items: center;
     flex-direction: column;
     /*padding-top: 100%;*/
+
     /*background-color: red;*/
 }
 
 .rowCell {
+    width: 80%;
     display: flex;
     flex-direction: row;
     /*justify-content: space-between;*/
@@ -20,8 +22,8 @@
 .cell {
     /*width: auto;*/
     /*display:table-cell;*/
-    width: 1.8em;
-    height: 1.8em;
+    width: 10%;
+    padding-bottom: 10%;
     background-color: white;
 
     /*padding: 10%;*/
@@ -44,6 +46,13 @@
     100% {background-color: #f0454a;}
 }
 
+@keyframes sea {
+    0% {background-color: #3987c9;}
+    30% {background-color: #225178;}
+    70% {background-color: #4098e2;}
+    100% {background-color: #3987c9;}
+}
+
 .ship {
     /*background-color: #22527a;*/
     /*border: 2px solid #34e77e;*/
@@ -64,7 +73,7 @@
 }
 
 .void {
-    background-color: #3987c9;
+    animation: sea 20s ease infinite;
 
 }
 

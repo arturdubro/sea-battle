@@ -1,11 +1,23 @@
+let current;
+
 function selectQuestion() {
 
-    $("#question").text(questions[0].text);
+    current = Math.round(Math.random() * (questions.length - 1));
+
+    Math.round(Math.random() * 2);
+
+    console.log(current)
+
+    $("#question").text(questions[current].text);
 }
 
 function checkAnswer(val) {
 
-    let check = (val === "Паспорт");
+    console.log(questions[current].answers)
+
+    console.log(val);
+
+    let check = questions[current].answers.indexOf(val + "") >= 0;
 
     console.log("Answer: " + check)
 

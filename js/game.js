@@ -5,11 +5,11 @@ function aiAttack() {
 
     console.log("aiAttack " + x + " " + y);
 
+    console.log("cell: " + userMap[x][y])
+
     if (userMap[x][y] === "ship") {
 
-        userMap[x][y] = "dead";
-
-        $("#cell" + x + y).addClass("dead");
+        markShip(userMap, x, y);
 
         setTimeout(function() {
 
@@ -30,7 +30,7 @@ function aiAttack() {
 
         setTimeout(function() {
             aiAttack()
-        }, 1000);
+        }, 500);
 
     } else {
         aiAttack();
@@ -39,30 +39,67 @@ function aiAttack() {
 
 function answer() {
 
-    let val = $("input").val();
+    let input = $("input");
 
-    checkAnswer(val);
+    let val = input.val();
 
-    console.log();
+    let correct = false;
 
-    $("#container").load("./view/game.html", function () {
+    if (checkAnswer(val)) {
 
-        htmlMap();
-        showMap(userMap);
+        input.addClass("true");
+        $("#text").text("Истинно!");
+        correct = true;
 
-        $("#text").text("Бой стреляет в тебя!");
+    } else {
 
-        $("footer").hide();
+        input.addClass("false");
+        $("#text").text("Ошибочно!");
+    }
 
-        setTimeout(function() {
-            aiAttack()
-        }, 1000);
-    });
+    $("footer").hide();
+
+    // console.log();
+
+    setTimeout(function() {
+
+        $("#container").load("./view/game.html", function () {
+
+            $("input").removeClass("true");
+            $("input").removeClass("false");
+
+            htmlMap();
+
+            $("footer").hide();
+
+            if (correct) {
+
+                showAiMap(aiMap);
+
+                $("#text").text("Продолжай");
+
+                attack = true;
+
+                return;
+            }
+
+            showMap(userMap);
+
+            $("#text").text("Бой стреляет в тебя!");
+
+            setTimeout(function() {
+                aiAttack()
+            }, 1000);
+        });
+
+    }, 1000);
 }
 
 function no() {
 
-    $("#text").text("Нельзя не ответить");
+    selectQuestion();
+
+    $("#text").text("Ты благословлен");
 }
 
 
@@ -74,9 +111,7 @@ function shot(i, j) {
 
         if (aiMap[i][j] === "ship") {
 
-            aiMap[i][j] = "dead";
-
-            $("#cell" + i + j).addClass("dead");
+            markShip(aiMap, i, j);
 
             attack = false;
 
@@ -88,7 +123,7 @@ function shot(i, j) {
                 });
             }, 500);
 
-        } else {
+        } else if (aiMap[i][j] === "") {
 
             aiMap[i][j] = "void";
 

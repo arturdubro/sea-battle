@@ -69,7 +69,7 @@ function random() {
 
 function start() {
 
-    $("#text").text("Стреляй по бою!");
+    $("#text").text("Выстреливай по бою!");
 
     $("footer").hide();
 
@@ -78,6 +78,8 @@ function start() {
     initMap(aiMap, aiCount);
 
     clearMapView();
+
+    showAiMap(aiMap)
 
     // $("#container").load("./view/main.html" );
 }
