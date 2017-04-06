@@ -33,7 +33,7 @@ html, body {
 }
 
 header {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 .title {
@@ -73,6 +73,15 @@ header {
 
 .button:active {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#text {
+    margin-bottom: 10%;
+}
+
+#conclusion {
+    margin: 10%;
+    text-align: center;
 }
 
 .noselect {

@@ -11,6 +11,10 @@ function aiAttack() {
 
         markShip(userMap, x, y);
 
+        if (checkEnd(userMap)) {
+            return;
+        }
+
         setTimeout(function() {
 
             clearMapView();
@@ -113,6 +117,10 @@ function shot(i, j) {
 
             markShip(aiMap, i, j);
 
+            if (checkEnd(aiMap)) {
+                return;
+            }
+
             attack = false;
 
             setTimeout(function () {
@@ -121,6 +129,7 @@ function shot(i, j) {
 
                     selectQuestion();
                 });
+
             }, 500);
 
         } else if (aiMap[i][j] === "") {

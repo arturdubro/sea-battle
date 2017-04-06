@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#container").load("./view/main.html");
+    $("#container").load("./view/main.html", function () {});
 });
 
 //random count, for fun
@@ -31,7 +31,7 @@ function init() {
 
         initMap(userMap, count);
 
-        $("#text").text("Твои кораблики");
+        $("#text").text(text.ships);
     });
 }
 

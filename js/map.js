@@ -141,6 +141,25 @@ function initMap(map, count) {
     // console.log(count)
 }
 
+function checkEnd(map) {
+
+    for (let i = 0; i < 10; i++) {
+
+        for (let j = 0; j < 10; j++) {
+
+            if (map[i][j] === "ship")
+                return false;
+        }
+    }
+
+    console.log("END GAME");
+    setTimeout(function () {
+        $("#container").load("./view/end.html", function () {});
+    }, 1000);
+
+    return true;
+}
+
 function clearMapView() {
 
     for (let i = 0; i < 10; i++) {
@@ -180,8 +199,8 @@ function showAiMap(map) {
 
         for (let j = 0; j < 10; j++) {
 
-            if (map[i][j] === "ship")
-                $("#cell" + i + j).addClass("ship");
+            // if (map[i][j] === "ship")
+            //     $("#cell" + i + j).addClass("ship");
 
             if (map[i][j] === "void")
                 $("#cell" + i + j).addClass("void");
