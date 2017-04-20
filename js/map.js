@@ -5,7 +5,7 @@
 //
 // 20
 
-let fleet = {1: 4, 2: 3, 3: 2, 4: 1};
+// let fleet = {1: 4, 2: 3, 3: 2, 4: 1};
 // let fleet = [0, 4, 3, 2, 1];
 
 // let count = 20;
@@ -136,7 +136,7 @@ function initMap(map, count) {
 
     createMapArray(map);
 
-    fillMapArray(map, count);
+    fillMapArray2(map, count);
 
     // console.log(count)
 }
