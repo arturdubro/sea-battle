@@ -86,3 +86,7 @@ function end() {
     $("#container").load("./view/end.html", function () {});
 }
 
+function buy() {
+    $("#container").load("./view/buy.html", function () {});
+}
+

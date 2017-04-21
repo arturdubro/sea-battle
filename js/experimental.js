@@ -2,7 +2,7 @@ let fleet = [0, 4, 3, 2, 1, 0]; //четыре однопалубных или �
 
 function fillMapArray2(map, count) {
 
-    console.log("-- new --")
+    // console.log("-- new --")
 
     //[i] - cell count ship
     for (let i = 0; i < fleet.length; i++) {
@@ -10,8 +10,7 @@ function fillMapArray2(map, count) {
         // i палубы
         for (let j = 0; j < fleet[i]; j++) {
 
-            console.log(i + " blocks [" + j + "]");
-
+            // console.log(i + " blocks [" + j + "]");
 
             //j индекс в строю одинаковых
 
@@ -39,7 +38,7 @@ function fillMapArray2(map, count) {
 
                 if (map[x][y] !== "ship" && checkNeighbors(map, x, y) && !checkShipAround(map, x, y)) {
 
-                    console.log("checkNeighbors for " + x + " " + y)
+                    // console.log("checkNeighbors for " + x + " " + y)
 
                     //проверяем пока у нас есть палубы
 
@@ -66,7 +65,7 @@ function fillMapArray2(map, count) {
                                 $("#cell" + (x+deck) + (y)).addClass("ship");
                             }
 
-                            console.log("place " + x + " " + y + " bottom")
+                            // console.log("place " + x + " " + y + " bottom")
 
                             break;
                         }
@@ -98,7 +97,7 @@ function fillMapArray2(map, count) {
                                 $("#cell" + (x) + (y+deck)).addClass("ship");
                             }
 
-                            console.log("place " + x + " " + y + " right")
+                            // console.log("place " + x + " " + y + " right")
 
                             break;
                         }
@@ -113,7 +112,7 @@ function fillMapArray2(map, count) {
 
             //провероить если влезает
 
-            fleet[i][j]
+            // fleet[i][j]
 
         }
     }
@@ -142,7 +141,7 @@ function fillMapArray2(map, count) {
     // if (count > 0)
     //     fillMapArray(map, count);
 
-    console.log(map)
+    // console.log(map)
 }
 
 function sleep(milliseconds) {
