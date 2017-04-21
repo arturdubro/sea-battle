@@ -1,12 +1,17 @@
 let current;
 
+let answered = [];
+
 function selectQuestion() {
 
     current = Math.round(Math.random() * (questions.length - 1));
 
-    Math.round(Math.random() * 2);
+    if (answered.indexOf(current) > -1) {
+        selectQuestion();
+        return;
+    }
 
-    console.log(current)
+    // console.log(current)
 
     $("#question").text(questions[current].text);
 }
@@ -17,9 +22,12 @@ function checkAnswer(val) {
 
     console.log(val);
 
-    let check = questions[current].answers.indexOf(val.toLowerCase() + "") >= 0;
+    let check = questions[current].answers.indexOf(val.trim().toLowerCase() + "") >= 0;
 
     // console.log("Answer: " + check)
+
+    if (check)
+        answered.push(current);
 
     return check;
 }
@@ -75,7 +83,7 @@ let questions = [
         answers: ["внимание", "опасность", "тревога", "угроза"]
     },
     {
-        text: "",
-        answers: [""]
+        text: "Пустой вопрос",
+        answers: ["Пустой ответ"]
     }
 ];

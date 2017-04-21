@@ -82,3 +82,7 @@ function start() {
     attack = true;
 }
 
+function end() {
+    $("#container").load("./view/end.html", function () {});
+}
+

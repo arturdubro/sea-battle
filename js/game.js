@@ -1,5 +1,9 @@
 function aiAttack() {
 
+    if (checkEnd(userMap)) {
+        return;
+    }
+
     const x = Math.round(Math.random() * 9);
     const y = Math.round(Math.random() * 9);
 
