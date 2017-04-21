@@ -65,6 +65,13 @@ function random() {
     clearMapView();
 
     initMap(userMap, count);
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Index',
+        eventAction: 'random',
+        eventLabel: ''
+    });
 }
 
 function start() {

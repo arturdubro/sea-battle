@@ -67,6 +67,7 @@ function createMapArray(map) {
     }
 }
 
+//mark ship as dead here
 function markShip(map, i, j) {
 
     $("#cell" + i + j).addClass("dead");
