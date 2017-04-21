@@ -69,18 +69,16 @@ function random() {
 
 function start() {
 
-    $("#text").text("Выстреливай по бою!");
-
     $("footer").hide();
 
-    attack = true;
+    $("#text").text("Выстреливай по бою!");
 
     initMap(aiMap, aiCount);
 
     clearMapView();
 
-    showAiMap(aiMap)
+    showAiMap(aiMap);
 
-    // $("#container").load("./view/main.html" );
+    attack = true;
 }
 

@@ -19,7 +19,7 @@ function checkAnswer(val) {
 
     let check = questions[current].answers.indexOf(val.toLowerCase() + "") >= 0;
 
-    console.log("Answer: " + check)
+    // console.log("Answer: " + check)
 
     return check;
 }

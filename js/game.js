@@ -5,8 +5,9 @@ function aiAttack() {
 
     console.log("aiAttack " + x + " " + y);
 
-    console.log("cell: " + userMap[x][y])
+    console.log("cell: " + userMap[x][y]);
 
+    //POPAL
     if (userMap[x][y] === "ship") {
 
         markShip(userMap, x, y);
@@ -17,24 +18,29 @@ function aiAttack() {
 
         setTimeout(function() {
 
-            clearMapView();
-            showAiMap(aiMap);
-
-            $("#text").text("Стреляй обратку скорее");
-
-            attack = true;
+            aiAttack();
 
         }, 1000);
 
     } else if (userMap[x][y] === "") {
+
+        $("#text").text("Бой промазал");
 
         userMap[x][y] = "void";
 
         $("#cell" + x + y).addClass("void");
 
         setTimeout(function() {
-            aiAttack()
-        }, 500);
+
+            $("#text").text("Твой ход");
+
+            clearMapView();
+
+            showAiMap(aiMap);
+
+            attack = true;
+
+        }, 1000);
 
     } else {
         aiAttack();
@@ -47,6 +53,9 @@ function answer() {
 
     let val = input.val();
 
+    if (val === "")
+        return;
+
     let correct = false;
 
     if (checkAnswer(val)) {
@@ -55,15 +64,24 @@ function answer() {
         $("#text").text("Истинно!");
         correct = true;
 
+        $("footer").hide();
+
+        loadMap(correct);
+
     } else {
 
         input.addClass("false");
         $("#text").text("Ошибочно!");
+
+        setTimeout(function() {
+            $("input").removeClass("false");
+            $("#text").text("Истина где-то рядом");
+            input.val("")
+        }, 1000);
     }
+}
 
-    $("footer").hide();
-
-    // console.log();
+function loadMap(correct) {
 
     setTimeout(function() {
 
@@ -130,13 +148,30 @@ function shot(i, j) {
                     selectQuestion();
                 });
 
-            }, 500);
+            }, 1000);
 
         } else if (aiMap[i][j] === "") {
 
             aiMap[i][j] = "void";
 
             $("#cell" + i + j).addClass("void");
+
+            attack = false;
+
+            $("#text").text("Промазал");
+
+            setTimeout(function() {
+
+                clearMapView();
+                showMap(userMap);
+
+                $("#text").text("Бой атакует");
+
+                setTimeout(function() {
+                    aiAttack();
+                }, 1000);
+
+            }, 1000);
         }
 
     } else {
