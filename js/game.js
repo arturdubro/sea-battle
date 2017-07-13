@@ -74,6 +74,8 @@ function answer() {
 
         loadMap(correct);
 
+        checkEnd(aiMap);
+
     } else {
 
         input.addClass("false");
@@ -140,10 +142,6 @@ function shot(i, j) {
         if (aiMap[i][j] === "ship") {
 
             markShip(aiMap, i, j);
-
-            if (checkEnd(aiMap)) {
-                return;
-            }
 
             attack = false;
 

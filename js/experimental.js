@@ -1,4 +1,5 @@
 let fleet = [0, 4, 3, 2, 1]; //четыре однопалубных или один четырехпалубный
+// let fleet = [0, 1];
 
 function fillMapArray2(map, count) {
 
