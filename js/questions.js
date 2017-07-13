@@ -91,7 +91,7 @@ function timerSec() {
 
 function showMuseumMap() {
 
-    let win = window.open("../images/map/" + questions[block][current].map, "_blank");
+    let win = window.open("images/map/" + questions[block][current].map, "_blank");
     win.focus();
 }
 
@@ -128,7 +128,7 @@ let questions = [
 
             "\n",
 
-            image: "../images/map/example.png",
+            image: "images/map/example.png",
 
             answers: ["петр железняк", "железняк"],
             help: "Подсказка",
