@@ -69,6 +69,8 @@ function answer() {
         correct = true;
 
         $("footer").hide();
+        $("#timer").hide();
+        stopTimer()
 
         loadMap(correct);
 
@@ -123,9 +125,9 @@ function loadMap(correct) {
 
 function no() {
 
-    selectQuestion();
+    // selectQuestion();
 
-    $("#text").text("Ты благословлен");
+    // $("#text").text("Ты благословлен");
 }
 
 

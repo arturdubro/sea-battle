@@ -70,6 +70,8 @@ function createMapArray(map) {
 //mark ship as dead here
 function markShip(map, i, j) {
 
+    //TODO HERE CHECK SHIP IF DEAD
+
     $("#cell" + i + j).addClass("dead");
 
     map[i][j] = "dead";
@@ -113,6 +115,28 @@ function markShip(map, i, j) {
             map[i][j+1] = "void";
         }
     }
+
+    checkShipDead(map, i, j)
+}
+
+function checkShipDead(map, i, j) {
+
+    if (i > 0 && map[i-1][j] === "dead") {
+
+        // $("#cell" + (i-1) + j).addClass("void");
+        // map[i-1][j] = "void";
+    }
+
+    // сходить в 4 стороны проверить что там нет живых леток
+    if (checkNextCellDead()) {
+
+        // если все мертвые, пометить как затонувший
+        // sunken
+    }
+}
+
+function checkNextCellDead() {
+    return false;
 }
 
 function checkShipAround(map, i, j) {
@@ -200,8 +224,8 @@ function showAiMap(map) {
 
         for (let j = 0; j < 10; j++) {
 
-            // if (map[i][j] === "ship")
-            //     $("#cell" + i + j).addClass("ship");
+            if (map[i][j] === "ship")
+                $("#cell" + i + j).addClass("ship");
 
             if (map[i][j] === "void")
                 $("#cell" + i + j).addClass("void");

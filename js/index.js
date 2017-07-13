@@ -21,6 +21,18 @@ let aiCount = 20;
 
 // document.getElementById("body").requestFullscreen();
 
+function rules() {
+
+    $("#container").load("./view/rules.html", function () {
+
+        // htmlMap();
+
+        // initMap(userMap, count);
+
+        // $("#text").text(text.ships);
+    });
+}
+
 function init() {
 
     // document.body.requestFullscreen();
@@ -95,5 +107,12 @@ function end() {
 
 function buy() {
     $("#container").load("./view/buy.html", function () {});
+}
+
+
+function feedback() {
+
+    let win = window.open("https://docs.google.com/forms/d/e/1FAIpQLSfvS-VO5QiR_SrPCH_ZYzwtGrqZa5JKgikDgw0eUWHxEKHmOg/viewform", "_blank");
+    win.focus();
 }
 
