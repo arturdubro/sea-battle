@@ -40,10 +40,10 @@
 }
 
 @keyframes fire {
-    0% {background-color: #f0454a;}
-    30% {background-color: #e9f326;}
-    70% {background-color: #ffcf06;}
-    100% {background-color: #f0454a;}
+    0% {background-color: #f09d25;}
+    30% {background-color: #f3d439;}
+    70% {background-color: #ffc80a;}
+    100% {background-color: #f09d25;}
 }
 
 @keyframes sea {
