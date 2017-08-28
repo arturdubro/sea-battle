@@ -224,8 +224,8 @@ function showAiMap(map) {
 
         for (let j = 0; j < 10; j++) {
 
-            if (map[i][j] === "ship")
-                $("#cell" + i + j).addClass("ship");
+            // if (map[i][j] === "ship")
+            //     $("#cell" + i + j).addClass("ship");
 
             if (map[i][j] === "void")
                 $("#cell" + i + j).addClass("void");

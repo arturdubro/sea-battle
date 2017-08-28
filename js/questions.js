@@ -52,7 +52,7 @@ function selectQuestion() {
         console.log("order: " + order)
 
         let q = $("#question").text(
-            block + "/" + current + "/" + order + " " +
+            // block + "/" + current + "/" + order + " " +
             questions[block][current].text
         );
         q.html(q.html().replace(/\n/g, "<br/>"));
