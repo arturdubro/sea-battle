@@ -114,7 +114,7 @@ function showMuseumMap() {
 
 function showHelp() {
     $("#timer").css("display", "none");
-    $("#text").text(questions[block][current].help)
+    $("#hint").text(questions[block][current].help)
 
     // questions[i][current]
 }
